@@ -167,7 +167,7 @@ elif st.session_state.step == 6:
     st.write("ยกโทษให้เค้าได้มั้ยย 🥺🥺")
     st.write("---")
     st.markdown("""
-        <a href="https://www.youtube.com/watch?v=kYI4M8a9F0g" target="_blank" style="text-decoration:none;">
+        <a href="https://youtu.be/ks7p6DA0dKk?si=Fk7oKQeqSfsDO5T7" target="_blank" style="text-decoration:none;">
             <div style="background: #D69F7E; color:white; padding:15px; border-radius:12px; font-weight:bold; font-size:20px;">
                 ▶️ ฟังเพลงของเรากันนะ
             </div>
