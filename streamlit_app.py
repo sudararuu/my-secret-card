@@ -137,9 +137,9 @@ elif st.session_state.step == 5:
         # ด่านสุดท้าย: ปุ่มโกรธหายไป เหลือแต่ปุ่มไม่โกรธ 3 ปุ่มรัวๆ
         st.write("โถ่... ปุ่มโกรธมันพังไปแล้วอ้วน")
         st.write("### อ้วนยังจะโกรธเค้าลงจริงๆ หรอ? 🥺")
+        if st.button("เค้าไม่ให้อ้วนโกรธ ❤️"): st.session_state.step = 6; st.rerun()
         if st.button("ไม่โกรธ ❤️"): st.session_state.step = 6; st.rerun()
-        if st.button("ไม่โกรธหรอกเจ้าไดโน 🦖"): st.session_state.step = 6; st.rerun()
-        if st.button("ไม่โกรธแล้วจ้าาา ❤️"): st.session_state.step = 6; st.rerun()
+        if st.button("ไม่โกรธ ❤️"): st.session_state.step = 6; st.rerun()
 
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -147,9 +147,9 @@ elif st.session_state.step == 5:
 elif st.session_state.step == 6:
     st.balloons()
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.title("รักอ้วนที่สุดเลย! ❤️")
-    st.subheader("ขอบคุณที่ไม่โกรธน้ำหวานน้าา 🥹🥹")
-    st.write("ขอบคุณที่ใส่ใจและรับฟังความจริงของเค้านะ")
+    st.title("ขอโทษนะอ้วน")
+    st.subheader("ยกโทษให้เค้าได้ไหมงับ 🥹🥹")
+    st.write("🥺🥺🥺")
     st.write("---")
     st.markdown("""
         <p style="font-size:18px;">🎵 เพลงนี้... เค้าอยากให้เราฟังด้วยกันนะ</p>
