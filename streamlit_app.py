@@ -106,7 +106,6 @@ elif st.session_state.step == 2:
 # หน้า 3: ความลับที่ 2
 elif st.session_state.step == 3:
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.image("https://img.freepik.com/free-vector/hand-drawn-dinosaur-collection_23-2148154133.jpg", width=200)
     st.header("อ้วนนน เค้าขอโทษ🥺")
     st.write("เรื่องชื่อ 'รวี' ที่อ้วนเรียกมาตลอด...")
     if st.button("ชื่อจริงๆ ของเค้าคือ"):
