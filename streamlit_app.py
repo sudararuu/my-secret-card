@@ -61,7 +61,7 @@ if st.session_state.step == 0:
 # หน้า 1: หัวข้อความลับที่ 1
 elif st.session_state.step == 1:
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.header("ความลับที่ 1 🎂")
+    st.header("สิ่งที่เค้าอยากบอกเรื่องวันเกิด🎂")
     st.write("เรื่องวันเกิดที่เค้าเคยบอกอ้วนไป...")
     if st.button("กดเพื่อดูความจริง"):
         with st.spinner('กำลังเปิดเผยความลับ...'): time.sleep(1.2)
@@ -72,10 +72,10 @@ elif st.session_state.step == 1:
 # หน้า 2: เฉลยความลับที่ 1
 elif st.session_state.step == 2:
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.header("เฉลยความลับที่ 1")
-    st.success("จริงๆ แล้วเค้าเกิดวันที่ 31 กรกฎาคมนะ!")
-    st.write("เค้าตั้งใจจะบอกอ้วนตั้งนานแล้ว แต่เค้ากลัวอ้วนโกรธ ทั้งที่รู้ว่าอ้วนะโกรธ เค้าก็ยังจะทำ 🥹🥹...")
-    if st.button("ไปดูความลับต่อไปกัน"):
+    st.header("เฉลยความจริง🥹")
+    st.success("จริงๆ แล้วเค้าเกิดวันที่ 31 กรกฎาคม 🥹")
+    st.write("เค้าตั้งใจจะบอกอ้วนตั้งนานแล้ว แต่เค้าปล่อยเลยมา😢...")
+    if st.button("อันต่อไปอยากจะบอกอ้วนอีก"):
         st.session_state.step = 3
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
@@ -94,11 +94,11 @@ elif st.session_state.step == 3:
 # หน้า 4: เฉลยความลับที่ 2
 elif st.session_state.step == 4:
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.header("เฉลยความลับที่ 2")
-    st.warning("จริงๆ เค้าชื่อ 'สุดา' หรือเรียก 'น้ำหวาน'ก็ได้งับ")
-    st.write("อยากบอกนานแล้ว ไม่กล้าบอกซักที")
+    st.header("อ้วนโกรธแน่เลย 😢😢")
+    st.warning("จริงๆ เค้าชื่อ 'สุดา' หรืออ้วนอยากเรียก 'น้ำหวาน'ก็ได้")
+    st.write("อ้วนโกรธแน่เลยย 🥹🥹 ขอโทษนะที่เค้าโกหก")
     st.write("แต่ตอนนี้เค้าอยากจริงใจกับอ้วนที่สุดแล้วนะ")
-    if st.button("ไปหน้าสุดท้ายกัน..."):
+    if st.button("ไปหน้าสุดท้ายแล้ว..."):
         st.session_state.step = 5
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
@@ -153,7 +153,7 @@ elif st.session_state.step == 6:
     st.balloons()
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
     st.title("รักอ้วนที่สุดเลย! ❤️")
-    st.subheader("ขอบคุณที่ไม่โกรธน้ำหวานนะจ๊ะ")
+    st.subheader("ขอบคุณที่ไม่โกรธน้ำหวานน้าา 🥹🥹")
     st.write("ขอบคุณที่ใส่ใจและรับฟังความจริงของเค้านะ")
     st.write("---")
     st.markdown("""
@@ -165,7 +165,7 @@ elif st.session_state.step == 6:
         </a>
         <br>
     """, unsafe_allow_html=True)
-    if st.button("เริ่มต้นใหม่ (แบบไม่มีความลับแล้วนะ)"):
+    if st.button("เริ่มต้นใหม่ (ขอโทษงับ รู้สึกผิด😭🥹)"):
         for key in st.session_state.keys(): del st.session_state[key]
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
