@@ -134,14 +134,13 @@ elif st.session_state.step == 5:
                     random.shuffle(st.session_state.btn_order)
                     st.rerun()
     else:
-        # เมื่อกดโกรธครบ 3 ครั้ง ปุ่มจะหยุดนิ่งแต่มัดมือชก
+        # ด่านสุดท้าย: ปุ่มโกรธหายไป เหลือแต่ปุ่มไม่โกรธ 3 ปุ่มรัวๆ
         st.write("โถ่... ปุ่มโกรธมันพังไปแล้วอ้วน")
         st.write("### อ้วนยังจะโกรธเค้าลงจริงๆ หรอ? 🥺")
-        cf1, cf2 = st.columns(2)
-        with cf1:
-            if st.button("ไม่โกรธ ❤️"):
-                st.session_state.step = 6
-                st.rerun()
+        if st.button("ไม่โกรธ ❤️"): st.session_state.step = 6; st.rerun()
+        if st.button("ไม่โกรธหรอกเจ้าไดโน 🦖"): st.session_state.step = 6; st.rerun()
+        if st.button("ไม่โกรธแล้วจ้าาา ❤️"): st.session_state.step = 6; st.rerun()
+
     st.markdown('</div>', unsafe_allow_html=True)
 
 # หน้า 6: หน้าจบ (สารภาพรัก + เพลง)
@@ -161,7 +160,8 @@ elif st.session_state.step == 6:
         </a>
         <br>
     """, unsafe_allow_html=True)
-    if st.button("เริ่มต้นใหม่ (ขอโทษงับ รู้สึกผิด😭🥹)"):
+    if st.button("เริ่มต้นใหม่ (ขอโทษงับ เค้ารู้สึกผิดจริง ๆ 
+😭🥹)"):
         for key in st.session_state.keys(): del st.session_state[key]
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
