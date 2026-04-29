@@ -163,7 +163,6 @@ elif st.session_state.step == 5:
 elif st.session_state.step == 6:
     st.balloons()
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.image("https://img.freepik.com/free-vector/cute-dino-hugging-cat-cartoon_23-2148154130.jpg", width=200) # รูปคู่น่ารักๆ
     st.title("ขอโทษนะอ้วนนน😭😭")
     st.write("ยกโทษให้เค้าได้มั้ยย 🥺🥺")
     st.write("---")
