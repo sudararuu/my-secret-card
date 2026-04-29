@@ -2,21 +2,22 @@ import streamlit as st
 import time
 import random
 
-st.set_page_config(page_title="Special Gift", page_icon="💖")
+# --- 1. ตั้งค่าหน้าเว็บ ---
+st.set_page_config(page_title="Special Gift for You", page_icon="💖")
 
-# CSS ตกแต่ง จัดกึ่งกลาง และฟอนต์น่ารักๆ
+# --- 2. ตกแต่ง CSS (ฟอนต์ Itim + จัดกึ่งกลาง + พื้นหลัง Gradient) ---
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-
+    
     html, body, [class*="css"], .stApp {
         font-family: 'Itim', cursive !important;
         background: linear-gradient(180deg, #ff9a9e 0%, #fad0c4 100%);
         display: flex; justify-content: center; align-items: center;
     }
     
-    .block-container {
-        display: flex; justify-content: center; align-items: center; text-align: center;
+    .block-container { 
+        display: flex; justify-content: center; align-items: center; text-align: center; 
     }
 
     .main-card {
@@ -34,108 +35,137 @@ st.markdown("""
 
     h1, h2, h3, p, span { 
         color: #7d0000 !important; 
-        text-align: center;
-        font-family: 'Itim', cursive !important;
+        text-align: center; 
+        font-family: 'Itim', cursive !important; 
     }
     </style>
     """, unsafe_allow_html=True)
 
-# ระบบจำสถานะ
-if 'step' not in st.session_state: st.session_state.step = 1
+# --- 3. ระบบจัดการสถานะ (Session State) ---
+if 'step' not in st.session_state: st.session_state.step = 0
 if 'move_count' not in st.session_state: st.session_state.move_count = 0
 if 'btn_order' not in st.session_state: st.session_state.btn_order = [1, 2] # 1=โกรธ, 2=ไม่โกรธ
 
-# หน้า 1: เริ่มต้น
-if st.session_state.step == 1:
+# --- 4. เนื้อหาแต่ละหน้า ---
+
+# หน้า 0: หน้าปกกล่องของขวัญ
+if st.session_state.step == 0:
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
     st.title("มีของขวัญมาส่งจ้า... 🎁")
-    st.write("### อ้วน... ลองจิ้มเปิดดูหน่อยสิ")
-    if st.button("จิ้มเพื่อเปิดกล่อง"):
-        with st.spinner('กำลังเปิดกล่อง...'): time.sleep(1.5)
+    st.write("### อ้วน... ลองจิ้มเปิดดูหน่อยสิว่าข้างในมีอะไร?")
+    if st.button("🎁 จิ้มเพื่อเปิดกล่อง"):
+        st.session_state.step = 1
+        st.rerun()
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# หน้า 1: หัวข้อความลับที่ 1
+elif st.session_state.step == 1:
+    st.markdown('<div class="main-card">', unsafe_allow_html=True)
+    st.header("ความลับที่ 1 🎂")
+    st.write("เรื่องวันเกิดที่เค้าเคยบอกอ้วนไป...")
+    if st.button("กดเพื่อดูความจริง"):
+        with st.spinner('กำลังเปิดเผยความลับ...'): time.sleep(1.2)
         st.session_state.step = 2
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
-# หน้า 2: วันเกิด
+# หน้า 2: เฉลยความลับที่ 1
 elif st.session_state.step == 2:
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.header("ความลับที่ 1 : วันเกิด 🎂")
-    st.write("จริงๆ แล้วเค้าเกิดวันที่ 31 กรกฎาคมนะ!")
-    st.write("เค้าตั้งใจจะบอกอ้วนตั้งนานแล้ว แต่เค้ากลัวอ้วนโกรธเค้า🥹...")
-    if st.button("ยังมีอีกเรื่อง... จิ้มต่อสิ"):
+    st.header("เฉลยความลับที่ 1")
+    st.success("จริงๆ แล้วเค้าเกิดวันที่ 31 กรกฎาคมนะ!")
+    st.write("เค้าตั้งใจจะบอกอ้วนตั้งนานแล้ว แต่เค้ากลัวอ้วนโกรธ ทั้งที่รู้ว่าอ้วนะโกรธ เค้าก็ยังจะทำ 🥹🥹...")
+    if st.button("ไปดูความลับต่อไปกัน"):
         st.session_state.step = 3
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
-# หน้า 3: ชื่อจริง
+# หน้า 3: หัวข้อความลับที่ 2
 elif st.session_state.step == 3:
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.header("ความลับที่ 2 : ชื่อ 📛")
-    st.write("เค้าชื่อ 'น้ำหวาน' นะ (หรือจะเรียกสุดาก็ได้)")
-    st.write("เค้ากลัวอ้วนโกรธ เลยไม่กล้าบอกซักที")
-    if st.button("หน้าสุดท้าย... อ้วนจิ้มสิ"):
+    st.header("ความลับที่ 2 📛")
+    st.write("เรื่องชื่อ 'รวี' ที่อ้วนเรียกมาตลอด...")
+    if st.button("กดเพื่อฟังชื่อจริง"):
+        with st.spinner('กำลังพิมพ์ชื่อ...'): time.sleep(1.2)
         st.session_state.step = 4
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
-# หน้า 4: วัดใจ (ปุ่มวิ่งหนี)
+# หน้า 4: เฉลยความลับที่ 2
 elif st.session_state.step == 4:
+    st.markdown('<div class="main-card">', unsafe_allow_html=True)
+    st.header("เฉลยความลับที่ 2")
+    st.warning("จริงๆ เค้าชื่อ 'สุดา' หรือเรียก 'น้ำหวาน'ก็ได้งับ")
+    st.write("อยากบอกนานแล้ว ไม่กล้าบอกซักที")
+    st.write("แต่ตอนนี้เค้าอยากจริงใจกับอ้วนที่สุดแล้วนะ")
+    if st.button("ไปหน้าสุดท้ายกัน..."):
+        st.session_state.step = 5
+        st.rerun()
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# หน้า 5: วัดใจ (ปุ่มวิ่งหนี + มัดมือชก)
+elif st.session_state.step == 5:
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
     st.title("อ้วนโกรธเค้าไหม? 🥺")
     
-    # ถ้ากดโกรธครบ 3 ครั้ง ปุ่มโกรธจะหายไปเลย!
     if st.session_state.move_count < 3:
-        st.write("จิ้มบอกความจริงมาเลย...")
-        
-        # สุ่มลำดับปุ่มใหม่ทุกครั้งที่กดโกรธ
+        st.write("ตอบตามตรงเลยนะ... เค้าเตรียมใจมาแล้ว")
         col1, col2 = st.columns(2)
-        buttons = []
         
+        # ระบบสุ่มตำแหน่งปุ่มโกรธ
         if st.session_state.btn_order[0] == 1:
             with col1:
                 if st.button("โกรธ! 😡"):
                     st.session_state.move_count += 1
-                    random.shuffle(st.session_state.btn_order) # สลับตำแหน่ง
+                    random.shuffle(st.session_state.btn_order)
                     st.rerun()
             with col2:
                 if st.button("ไม่โกรธ ❤️"):
-                    st.session_state.step = 5
+                    st.session_state.step = 6
                     st.rerun()
         else:
             with col1:
                 if st.button("ไม่โกรธ ❤️"):
-                    st.session_state.step = 5
+                    st.session_state.step = 6
                     st.rerun()
             with col2:
                 if st.button("โกรธ! 😡"):
                     st.session_state.move_count += 1
-                    random.shuffle(st.session_state.btn_order) # สลับตำแหน่ง
+                    random.shuffle(st.session_state.btn_order)
                     st.rerun()
     else:
-        # บังคับไม่ให้โกรธแล้ว
+        # เมื่อกดโกรธครบ 3 ครั้ง ปุ่มจะหยุดนิ่งแต่มัดมือชก
         st.write("โถ่... ปุ่มโกรธมันพังไปแล้วอ้วน")
-        st.write("แสดงว่าอ้วนโกรธเค้าไม่ลงหรอก จิ้มปุ่มข้างล่างเถอะ ✨")
-        if st.button("ยอมก็ได้ ไม่โกรธแล้ว ❤️"):
-            st.session_state.step = 5
-            st.rerun()
-
+        st.write("### อ้วนยังจะโกรธเค้าลงจริงๆ หรอ? 🥺")
+        cf1, cf2 = st.columns(2)
+        with cf1:
+            if st.button("โกรธ! 😡"):
+                st.session_state.step = 6 # ถึงจะกดโกรธ ก็พาไปหน้าจบแบบรักกันอยู่ดี
+                st.rerun()
+        with cf2:
+            if st.button("ไม่โกรธ ❤️"):
+                st.session_state.step = 6
+                st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
-# หน้า 5: บทสรุป
-elif st.session_state.step == 5:
+# หน้า 6: หน้าจบ (สารภาพรัก + เพลง)
+elif st.session_state.step == 6:
     st.balloons()
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.title("รักอ้วนที่สุดในโลกเยย! ❤️")
-    st.subheader("ขอบคุณที่ไม่โกรธน้ำหวานนะ")
+    st.title("รักอ้วนที่สุดเลย! ❤️")
+    st.subheader("ขอบคุณที่ไม่โกรธน้ำหวานนะจ๊ะ")
+    st.write("ขอบคุณที่ใส่ใจและรับฟังความจริงของเค้านะ")
     st.write("---")
     st.markdown("""
+        <p style="font-size:18px;">🎵 เพลงนี้... เค้าอยากให้เราฟังด้วยกันนะ</p>
         <a href="https://www.youtube.com/watch?v=kYI4M8a9F0g" target="_blank" style="text-decoration:none;">
-            <div style="background: #ff4b4b; color:white; padding:15px; border-radius:50px; font-weight:bold; font-size:22px;">
-                ▶️ ฟังเพลงของเรากัน
+            <div style="background: #ff4b4b; color:white; padding:15px; border-radius:50px; font-weight:bold; font-size:22px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                ▶️ ฟังเพลง 'ข้างกัน'
             </div>
         </a>
+        <br>
     """, unsafe_allow_html=True)
-    if st.button("กลับไปหน้าแรก"):
+    if st.button("เริ่มต้นใหม่ (แบบไม่มีความลับแล้วนะ)"):
         for key in st.session_state.keys(): del st.session_state[key]
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
