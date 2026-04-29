@@ -83,9 +83,9 @@ elif st.session_state.step == 2:
 # หน้า 3: หัวข้อความลับที่ 2
 elif st.session_state.step == 3:
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.header("ความลับที่ 2 📛")
+    st.header("อีกอันที่เค้ารู้สึกผิดมาตลอด จะร้องไห้ 😭")
     st.write("เรื่องชื่อ 'รวี' ที่อ้วนเรียกมาตลอด...")
-    if st.button("กดเพื่อฟังชื่อจริง"):
+    if st.button("กดได้เยย ทำใจแล้ว"):
         with st.spinner('กำลังพิมพ์ชื่อ...'): time.sleep(1.2)
         st.session_state.step = 4
         st.rerun()
@@ -139,10 +139,6 @@ elif st.session_state.step == 5:
         st.write("### อ้วนยังจะโกรธเค้าลงจริงๆ หรอ? 🥺")
         cf1, cf2 = st.columns(2)
         with cf1:
-            if st.button("โกรธ! 😡"):
-                st.session_state.step = 6 # ถึงจะกดโกรธ ก็พาไปหน้าจบแบบรักกันอยู่ดี
-                st.rerun()
-        with cf2:
             if st.button("ไม่โกรธ ❤️"):
                 st.session_state.step = 6
                 st.rerun()
