@@ -51,7 +51,7 @@ if 'btn_order' not in st.session_state: st.session_state.btn_order = [1, 2] # 1=
 # หน้า 0: หน้าปกกล่องของขวัญ
 if st.session_state.step == 0:
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.title("มีของขวัญมาส่งจ้า... 🎁")
+    st.title("มีของขวัญมาส่งงับบ... 🎁")
     st.write("### อ้วน... ลองจิ้มเปิดดูหน่อยสิว่าข้างในมีอะไร?")
     if st.button("🎁 จิ้มเพื่อเปิดกล่อง"):
         st.session_state.step = 1
@@ -160,8 +160,7 @@ elif st.session_state.step == 6:
         </a>
         <br>
     """, unsafe_allow_html=True)
-    if st.button("เริ่มต้นใหม่ (ขอโทษงับ เค้ารู้สึกผิดจริง ๆ 
-😭🥹)"):
+    if st.button("เริ่มต้นใหม่ (ขอโทษงับ เค้ารู้สึกผิดจริง ๆ 😭🥹)"):
         for key in st.session_state.keys(): del st.session_state[key]
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
