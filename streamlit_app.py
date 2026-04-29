@@ -73,7 +73,7 @@ if 'btn_order' not in st.session_state: st.session_state.btn_order = [1, 2]
 # หน้า 0: เริ่มต้น
 if st.session_state.step == 0:
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.image("https://img.freepik.com/free-vector/hand-drawn-dinosaur-outline-illustration_23-2149254378.jpg", width=200) # ไดโนมินิมอล
+    # ไดโนมินิมอล
     st.title("มีของขวัญมาส่งงับบ... 🎁")
     st.write("อ้วน... ลองจิ้มเปิดดูหน่อยสิ")
     if st.button("เปิดกล่องของขวัญ"):
@@ -84,7 +84,6 @@ if st.session_state.step == 0:
 # หน้า 1: ความลับที่ 1
 elif st.session_state.step == 1:
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.image("https://img.freepik.com/free-vector/cute-cat-sticker-social-media-post-vector-animal-illustration_53876-127228.jpg", width=150) # แมวมินิมอล
     st.header("เค้ามีเรื่องจะบอก 🎂")
     st.write("เรื่องวันเกิดที่เค้าเคยบอกอ้วนไป...")
     if st.button("เฉลยความจริง"):
@@ -96,7 +95,7 @@ elif st.session_state.step == 1:
 # หน้า 2: เฉลยความลับที่ 1
 elif st.session_state.step == 2:
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.header("ความจริงเปิดเผย!")
+    st.header("ความจริงเปิดเผย")
     st.write("จริงๆ เค้าเกิดวันที่ **31 กรกฎาคม** 😢😢")
     st.write("ขอโทษนะที่โกหกอ้วน ปล่อยเลยตามเลยมาตลอด เค้าขอโทษ")
     if st.button("มีอีกอย่าง เค้ากลัวอ้วนโกรธมาก ๆ ..."):
