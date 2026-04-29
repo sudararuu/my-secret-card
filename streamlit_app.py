@@ -74,7 +74,7 @@ if 'btn_order' not in st.session_state: st.session_state.btn_order = [1, 2]
 if st.session_state.step == 0:
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
     # ไดโนมินิมอล
-    st.title("มีของขวัญมาส่งงับบ... 🎁")
+    st.title("มีของขวัญมาส่งงับ... 🎁")
     st.write("อ้วน... ลองจิ้มเปิดดูหน่อยสิ")
     if st.button("เปิดกล่องของขวัญ"):
         st.session_state.step = 1
